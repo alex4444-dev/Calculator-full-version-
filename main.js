@@ -1,11 +1,11 @@
 var numbersEls = document.querySelectorAll('.numbers'); // находим все элементы с классом numbers
 var operatorsEls = document.querySelectorAll('.operator'); // находим все элементы с классом operators
-var mainPanelEl = document.querySelectorAll('.main-panel'); // находим главную панель вывода
+var mainPanelEl = document.querySelector('.main-panel'); // находим главную панель вывода
 var cEl = document.getElementById('c'); //находим элемент с id c
 var resultBtn = document.getElementById('result'); //находим элемент с id result
 var decimalBtn = document.getElementById('decimal'); //находим элемент с id decimal
 var isOperationClicked = false; // true сразу после нажатия +*.- 
-var memorySecondNumber = 0; // обьявляем переменную равную 0
+var memorySecondNumber = ''; // обьявляем переменную равную 0
 var operation = '';
 
 for (let i=0; i<numbersEls.length; i++){ // перебираем значение одного элемента массива переменной
@@ -32,7 +32,7 @@ function numberPress(){ // обработчик события клика на �
 function _resetDisplayIfNeed(){
 	if(isOperationClicked){  // проверяем условие что MemoryFirstNumber true
 		mainPanelEl.value = '';
-		isOperationClicked = false; // елаем переменную обратно false
+		isOperationClicked = false; // делаем переменную обратно false
 	}
 }
 
@@ -88,7 +88,7 @@ function _countResult(num1, num2, operation){
 		return num1 + num2; // то прибавь второе введенное число к сохраненному ранее
 	}else if(operation === '-'){ //если  при нажатии на кнопку -
 		return num1 - num2;		// то отними второе введенное число от сохраненного ранее
-	} else if(operation === '*'){ //если  при нажатии на кнопку *
+	}else if(operation === '*'){ //если  при нажатии на кнопку *
 		return num1 * num2; 	// то умножь второе введенное число на сохраненное ранее
 	}else if(operation === '/'){ //если  при нажатии на кнопку /
 		return num1 / num2;		// то раздели второе введенное число на сохраненное ранее
